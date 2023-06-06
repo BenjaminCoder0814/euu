@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quer namorar comigo?</title>
+  <style>
+    body {
+      background-color: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .btn:hover {
+      transform: none !important;
+    }
+    #mensagem {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quer namorar comigo?</h1>
+    <button class="btn" id="simBtn">Sim</button>
+    <button class="btn" id="naoBtn">Não</button>
+    <div id="mensagem"></div>
+  </div>
+
+  <script>
+    var simBtn = document.getElementById("simBtn");
+    var mensagem = document.getElementById("mensagem");
+
+    simBtn.addEventListener("click", function() {
+      mensagem.style.display = "block";
+      mensagem.innerHTML = "Obrigado, meu amor! Eu te amo!";
+    });
+
+    var naoBtn = document.getElementById("naoBtn");
+    naoBtn.addEventListener("mouseenter", function() {
+      var randomX = Math.floor(Math.random() * (window.innerWidth - naoBtn.offsetWidth));
+      var randomY = Math.floor(Math.random() * (window.innerHeight - naoBtn.offsetHeight));
+      naoBtn.style.position = "absolute";
+      naoBtn.style.left = randomX + "px";
+      naoBtn.style.top = randomY + "px";
+    });
+
+    naoBtn.addEventListener("mouseleave", function() {
+      naoBtn.style.position = "static";
+    });
+  </script>
+</body>
+</html>
